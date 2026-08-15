@@ -4,9 +4,9 @@
 
 ## 为什么迁移
 
-| 维度 | 原 WordPress | 本方案 (Astro + Cloudflare Pages) |
-|------|-------------|-----------------------------------|
-| 年度费用 | 主机+域名+插件+安全 ≈ ¥1500+ | 仅域名 ≈ ¥100 |
+| 维度 | 原 WordPress.com | 本方案 (Astro + Cloudflare Pages) |
+|------|------------------|-----------------------------------|
+| 年度费用 | 套餐+域名 $382.87 ≈ ¥2580 | Cloudflare Pages 免费 + 域名 ≈ ¥74（域名 $11/年）|
 | 加载速度 | 3-7 秒（插件拖累） | 0.3-1 秒 |
 | 安全性 | 需持续更新插件/补丁 | 无数据库、无后台、无插件 |
 | 维护 | 每周插件更新、备份 | 零维护 |
@@ -23,12 +23,20 @@ npm run preview  # 预览构建产物
 
 ## 部署到 Cloudflare Pages
 
-1. 在 Cloudflare Pages 新建项目，连接 Git 仓库（或手动上传 `dist/`）。
-2. 构建设置：
+代码仓库：`https://github.com/cuining666/jiahong-logistics`（分支 `main`）。
+
+1. 登录 Cloudflare 控制台（账号 `cuining_tarena@outlook.com`）→ **Workers & Pages** → **Create** → **Pages** → **连接到 Git**。
+2. 授权连接 GitHub，选择仓库 `cuining666/jiahong-logistics`。
+3. 构建设置：
+   - **Framework preset**: `Astro`
    - **Build command**: `npm run build`
    - **Build output directory**: `dist`
-3. 部署完成后，在「自定义域」中绑定 `jiahonglogistics.com`。
-4. 在域名注册商处将 DNS 改为 Cloudflare 提供的 Nameserver。
+   - **Branch**: `main`
+4. 点击 **Save and Deploy**，等待构建完成（约 1-2 分钟）。
+5. 部署成功后获得 `*.pages.dev` 临时域名，可先验证页面。
+6. 在 **自定义域** 中绑定 `jiahonglogistics.com`（需域名 DNS 已切到 Cloudflare，见下）。
+
+> 旧 WordPress 的带尾斜杠 URL（`/about/` 等）已在 `public/_redirects` 中配置 301 跳转，部署后自动生效，无需在控制台手动添加。
 
 无需安装 `@astrojs/cloudflare` 适配器——本项目使用默认静态输出（`output: 'static'`），Cloudflare Pages 直接托管静态文件即可。
 
@@ -62,7 +70,7 @@ npm run preview  # 预览构建产物
 jiahong-logistics/
 ├── astro.config.mjs      # 站点配置
 ├── package.json
-├── public/               # 静态资源 (favicon, robots.txt)
+├── public/               # 静态资源 (favicon, robots.txt, _redirects)
 ├── src/
 │   ├── layouts/Layout.astro   # 全局布局(头部/底部)
 │   ├── pages/                  # 页面: index / about / offerings / contact
