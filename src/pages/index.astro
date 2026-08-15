@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  { n: '01', title: '海运进出口', desc: '东南亚、中东印巴、地中海、欧美、红海、南美等航线优势价格，主要港口均设代理，提供门到门全程服务。' },
+  { n: '02', title: '空运进出口', desc: '以华东、华北、华南三大集运分拨中心为依托，作为多家知名航空公司核心代理，快速送达全球。' },
+  { n: '03', title: '国内陆运', desc: '专业运输车队 60 辆，配备 GPS 全球定位系统，提供集装箱、散货配载及国内运输配送服务。' },
+];
+
+const values = [
+  { title: '快速高效', desc: '以快速高效的服务赢得客户信任，确保货物安全准时到达。' },
+  { title: '全方位服务', desc: '提供海空运输、清关仓储等全方位服务，助力客户畅通国际贸易通路。' },
+];
+---
+<Layout title="江苏嘉弘国际货运代理有限公司 — 优质国际货运代理服务">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">国际货运代理 · 一条龙服务</p>
+      <h1>优质国际货运代理服务<br />助您畅通国际贸易通路</h1>
+      <p class="lead">江苏嘉弘国际货运代理有限公司是国家一级货运代理，提供全方位的国内和国际贸易运输服务，全程追踪保障货物安全快捷抵达目的地。</p>
+      <div class="actions">
+        <a class="btn" href="/offerings">查看服务</a>
+        <a class="btn ghost" href="/contact">联系我们</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主要服务项目 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">主要服务项目</p>
+        <h2>提供一条龙的进出口货运代理服务</h2>
+      </div>
+      <div class="grid grid-3">
+        {services.map((s) => (
+          <div class="card service">
+            <span class="num">{s.n}</span>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 关于我们的故事 -->
+  <section class="section soft">
+    <div class="container about">
+      <div>
+        <p class="eyebrow">关于我们的故事</p>
+        <h2>丰富的行业经验，值得信赖的合作伙伴</h2>
+        <p>江苏嘉弘国际货运代理有限公司拥有丰富的行业经验，是一家国家一级货运代理，提供全方位的国内和国际贸易运输服务。</p>
+        <a class="btn ghost" href="/about">了解更多</a>
+      </div>
+      <div class="quote">
+        <blockquote>“江苏嘉弘国际货运代理一直为我们提供高效可靠的物流服务，值得信赖。”</blockquote>
+        <p class="who">— Ali</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 独特价值 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">独特价值</p>
+        <h2>高效、快捷、全方位的物流服务</h2>
+        <p class="lead">我们为您提供高效、快捷的全方位物流服务，节约成本，成为您值得信赖的合作伙伴。</p>
+      </div>
+      <div class="grid grid-2">
+        {values.map((v) => (
+          <div class="card">
+            <h3>{v.title}</h3>
+            <p>{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>立即联系我们</h2>
+      <p>获取专业的货运代理服务支持，报价随时在线，最快速度回复您。</p>
+      <a class="btn" href="/contact">联系我们</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--brand-dark), var(--brand));
+    color: #fff;
+    padding: 96px 0 84px;
+  }
+  .hero h1 { color: #fff; font-size: 2.8rem; }
+  .hero .lead { color: #d7e6f6; font-size: 1.15rem; }
+  .hero .eyebrow { color: #9ec3e8; }
+  .actions { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+  .hero .btn { background: #fff; color: var(--brand-dark); }
+  .hero .btn:hover { background: #eef4fb; }
+  .hero .btn.ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.6); }
+  .hero .btn.ghost:hover { background: rgba(255,255,255,.12); }
+
+  .service .num { color: var(--brand); font-weight: 700; font-size: 1.4rem; }
+
+  .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+  .quote {
+    background: #fff;
+    border-left: 4px solid var(--brand);
+    padding: 24px 28px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    box-shadow: var(--shadow);
+  }
+  .quote blockquote { margin: 0; font-size: 1.15rem; font-style: italic; color: var(--ink); }
+  .quote .who { color: var(--muted); margin: 12px 0 0; font-weight: 600; }
+
+  .cta { background: var(--brand-light); padding: 64px 0; text-align: center; }
+  .cta h2 { margin-bottom: 8px; }
+  .cta p { color: var(--muted); margin-bottom: 22px; }
+
+  @media (max-width: 860px) {
+    .hero { padding: 64px 0 56px; }
+    .hero h1 { font-size: 2rem; }
+    .about { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>

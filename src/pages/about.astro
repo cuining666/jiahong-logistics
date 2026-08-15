@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const principles = [
+  { t: '最快的响应', d: '报价随时都在，以最快的速度回复您，遇到问题及时处理并解决。' },
+  { t: '最好的服务', d: '从货物订舱、报关、进仓到开船到港，全程及时跟踪反馈客户。' },
+  { t: '最优惠的价格', d: '与 12 家船公司签署约价，量达到一定程度可申请市场前列的优惠价格。' },
+  { t: '解决问题的能力', d: '提不到箱、搞定上船均可操作，报关通关率达 96.88%。' },
+];
+
+const values = [
+  { t: '卓越', d: '我们致力于提供卓越的服务，为客户创造有价值的物流解决方案。' },
+  { t: '专业', d: '我们拥有专业团队，为客户提供专业的国内和国际贸易运输服务。' },
+  { t: '信任', d: '我们以诚信和可靠性为基础，赢得客户的信任和满意。' },
+];
+---
+<Layout title="关于我们 — 江苏嘉弘国际货运代理有限公司">
+  <section class="hero-inner">
+    <div class="container">
+      <p class="eyebrow">关于我们</p>
+      <h1>专业货运代理</h1>
+      <p class="lead">公司成立以来，秉持四大服务理念，为客户提供高效、可靠的物流服务。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">关于我们的故事</p>
+        <h2>秉持四大服务理念</h2>
+      </div>
+      <div class="grid grid-2">
+        {principles.map((p) => (
+          <div class="card">
+            <h3>{p.t}</h3>
+            <p>{p.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">我们的合作伙伴</p>
+        <h2>与业内领先企业战略合作</h2>
+        <p class="lead">我们自豪地与业内领先的公司建立战略合作关系，共同推动创新和卓越。合作伙伴在各自领域拥有丰富的经验和专业知识，通过紧密协作实现互利共赢。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">核心价值观</p>
+        <h2>我们的核心价值体现在承诺与服务中</h2>
+      </div>
+      <div class="grid grid-3">
+        {values.map((v) => (
+          <div class="card center">
+            <h3>{v.t}</h3>
+            <p>{v.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>立即联系我们</h2>
+      <p>获取专业的货运代理服务支持！</p>
+      <a class="btn" href="/contact">联系我们</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-inner { background: linear-gradient(135deg, var(--brand-dark), var(--brand)); color: #fff; padding: 64px 0 56px; }
+  .hero-inner h1 { color: #fff; }
+  .hero-inner .eyebrow { color: #9ec3e8; }
+  .hero-inner .lead { color: #d7e6f6; }
+  .card.center { text-align: center; }
+  .cta { background: var(--brand-light); padding: 64px 0; text-align: center; }
+  .cta h2 { margin-bottom: 8px; }
+  .cta p { color: var(--muted); margin-bottom: 22px; }
+</style>

@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const team = [
+  { name: 'Kenny', role: '总经理' },
+  { name: 'Andy', role: '销售经理' },
+  { name: 'Lucas', role: '销售经理' },
+  { name: 'Hana', role: '单证主管' },
+  { name: 'Cathy', role: '操作主管' },
+  { name: 'Sally', role: '销售' },
+  { name: 'Caitlyn', role: '单证' },
+  { name: 'Juno', role: '操作' },
+  { name: 'Michelle', role: '客服' },
+  { name: 'Sugar', role: '客服' },
+];
+---
+<Layout title="联系我们 — 江苏嘉弘国际货运代理有限公司">
+  <section class="hero-inner">
+    <div class="container">
+      <p class="eyebrow">联系我们</p>
+      <h1>请随时与我们联系</h1>
+      <p class="lead">如果您有任何问题或顾虑，可以通过以下方式联系我们。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="card info">
+          <h2>联系方式</h2>
+          <ul class="info-list">
+            <li>
+              <span class="ico">📍</span>
+              <div><strong>地址</strong><br />江苏省张家港市凤凰镇长江路8号</div>
+            </li>
+            <li>
+              <span class="ico">📞</span>
+              <div><strong>电话</strong><br /><a href="tel:+8618013613114">+86 180 1361 3114</a></div>
+            </li>
+            <li>
+              <span class="ico">✉️</span>
+              <div><strong>电子邮件</strong><br /><a href="mailto:X_kenny@yeah.net">X_kenny@yeah.net</a></div>
+            </li>
+          </ul>
+        </div>
+        <div class="card map-placeholder">
+          <h2>公司位置</h2>
+          <div class="map-box">
+            <p>江苏省张家港市凤凰镇长江路8号</p>
+            <p class="hint">部署后可接入高德 / Google Maps 嵌入地图</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">我们的团队</p>
+        <h2>认识我们才华横溢的团队</h2>
+        <p class="lead">我们的团队充满激情，兢兢业业，汇集了各种技能和专业知识，为客户提供卓越的服务。</p>
+      </div>
+      <div class="grid grid-3 team">
+        {team.map((m) => (
+          <div class="card member">
+            <div class="avatar">{m.name.charAt(0)}</div>
+            <h3>{m.name}</h3>
+            <p>{m.role}</p>
+          </div>
+        ))}
+        <div class="card member kenny">
+          <div class="avatar">K</div>
+          <h3>Kenny</h3>
+          <p>总经理 · +86 180 1361 3114</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-inner { background: linear-gradient(135deg, var(--brand-dark), var(--brand)); color: #fff; padding: 64px 0 56px; }
+  .hero-inner h1 { color: #fff; }
+  .hero-inner .eyebrow { color: #9ec3e8; }
+  .hero-inner .lead { color: #d7e6f6; }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .info h2, .map-placeholder h2 { margin-bottom: 20px; }
+  .info-list { list-style: none; padding: 0; margin: 0; }
+  .info-list li { display: flex; gap: 16px; margin-bottom: 22px; align-items: flex-start; }
+  .info-list .ico { font-size: 1.4rem; line-height: 1.4; }
+  .info-list strong { color: var(--ink); }
+  .map-box {
+    background: var(--bg-soft);
+    border: 1px dashed var(--line);
+    border-radius: var(--radius);
+    padding: 40px 24px;
+    text-align: center;
+    color: var(--muted);
+  }
+  .map-box .hint { font-size: .85rem; color: var(--muted); margin: 8px 0 0; }
+
+  .team .member { text-align: center; }
+  .team .avatar {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--brand-light); color: var(--brand);
+    display: grid; place-items: center; margin: 0 auto 14px;
+    font-size: 1.4rem; font-weight: 700;
+  }
+  .team .member h3 { margin-bottom: 4px; }
+  .team .member p { color: var(--muted); margin: 0; font-size: .92rem; }
+  .team .kenny { border-color: var(--brand); }
+
+  @media (max-width: 860px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+</style>

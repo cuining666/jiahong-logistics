@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const offerings = [
+  {
+    n: '01', title: '海运进出口',
+    desc: '嘉弘东南亚（日韩）、中东印巴、地中海、欧美、红海、南美等航线价格优势，主要港口均设有代理，能提供方便、快捷的全方位门到门服务，在国外拥有比较完善的服务网络。海运与马士基 MSK、地中海航运 MSC、达飞轮船 CMA、长荣 EMC、中海 CSCL、中远 COSCO、阳明 YML、韩进 HJ、美国总统 APL、新海丰 SITC、东方海外 OOCL、川崎汽船 K-LINE 等船公司签约。',
+  },
+  {
+    n: '02', title: '空运进出口',
+    desc: '以华东（上海为中心）、华北（北京、天津为中心）、华南（广州、深圳为中心）为三大集运分拨中心，作为世界多家知名航空公司的核心代理，保证货物及时、快速地运送到全球各地。',
+  },
+  {
+    n: '03', title: '国内陆运',
+    desc: '公司拥有专业的运输车队多达 60 辆，配备 GPS 全球定位系统，提供进出口集装箱、散货配载、货物的国内运输服务，能满足客户不同的运输及配送要求，以最经济、最便捷的运输为客户节约成本。',
+  },
+  {
+    n: '04', title: '仓储',
+    desc: '嘉弘拥有 20,000 平米现代化物流仓库提供 7×24 小时的服务，可提供仓储、装箱、分拣、包装、装卸，以及加固、绑扎、丈量、称重、扫描、贴标签、打托、缠膜等精细化仓储管理服务等一系列综合物流操作服务和增值服务。设有纺织品专用仓库，全程监控和全天候服务。',
+  },
+  {
+    n: '05', title: '堆场',
+    desc: '嘉弘签约 5 个国际集装箱堆场，总面积超过 40,000 平方米，日堆存能力 5000 TEU，配备集装箱正面吊 5 台，各种吨位叉车数台，拥有先进的信息系统，严格的操作效率，能为客户提供预提、落箱、预定箱号、货物堆存，以及专业修洗箱服务。',
+  },
+];
+---
+<Layout title="服务介绍 — 江苏嘉弘国际货运代理有限公司">
+  <section class="hero-inner">
+    <div class="container">
+      <p class="eyebrow">服务介绍</p>
+      <h1>全方位服务</h1>
+      <p class="lead">提供一条龙的进出口货运代理服务，覆盖海运、空运、陆运、仓储与堆场。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="offer-list">
+        {offerings.map((o) => (
+          <div class="offer">
+            <div class="offer-num">{o.n}</div>
+            <div class="offer-body">
+              <h2>{o.title}</h2>
+              <p>{o.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>需要报价或方案？</h2>
+      <p>我们的团队随时为您提供专业的货运代理服务支持。</p>
+      <a class="btn" href="/contact">联系我们</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-inner { background: linear-gradient(135deg, var(--brand-dark), var(--brand)); color: #fff; padding: 64px 0 56px; }
+  .hero-inner h1 { color: #fff; }
+  .hero-inner .eyebrow { color: #9ec3e8; }
+  .hero-inner .lead { color: #d7e6f6; }
+
+  .offer-list { display: grid; gap: 20px; }
+  .offer {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    box-shadow: var(--shadow);
+    align-items: start;
+  }
+  .offer-num {
+    font-size: 2.2rem; font-weight: 700; color: var(--brand);
+    line-height: 1; padding-top: 4px;
+  }
+  .offer-body h2 { font-size: 1.35rem; margin-bottom: 10px; }
+  .offer-body p { color: var(--muted); margin: 0; }
+
+  .cta { background: var(--brand-light); padding: 64px 0; text-align: center; }
+  .cta h2 { margin-bottom: 8px; }
+  .cta p { color: var(--muted); margin-bottom: 22px; }
+
+  @media (max-width: 860px) {
+    .offer { grid-template-columns: 48px 1fr; padding: 22px; }
+    .offer-num { font-size: 1.6rem; }
+  }
+</style>
