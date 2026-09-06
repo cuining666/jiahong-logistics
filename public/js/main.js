@@ -59,9 +59,8 @@
   }
 
   // 联系表单：校验 + 通过 Formspree 真实提交
-  // ↓↓↓ 在 formspree.io 注册后，把生成的表单 ID 粘贴到下面（替换 YOUR_FORM_ID）↓↓↓
-  var FORMSPREE_ID = "YOUR_FORM_ID";
-  var FORMSPREE_ENDPOINT = "https://formspree.io/f/" + FORMSPREE_ID;
+  // 表单 ID 的唯一来源是 contact.astro 中 <form> 的 action 属性，
+  // 注册 formspree.io 并把生成的 ID 填入该 action 即可（无需改本文件）。
 
   var form = document.getElementById("contactForm");
   if (form) {
@@ -118,9 +117,10 @@
 
       if (!ok) return;
 
-      // 尚未配置 Formspree：提示先注册并填入表单 ID
-      if (FORMSPREE_ID === "YOUR_FORM_ID") {
-        showError("表单尚未配置：请前往 formspree.io 免费注册，验证邮箱 X_kenny@yeah.net 后，将生成的表单 ID 填入 public/js/main.js 顶部的 FORMSPREE_ID。");
+      // 尚未配置 Formspree：提示先注册并填入表单 ID（在 contact.astro 的 action 中）
+      var endpoint = form.getAttribute("action") || "";
+      if (!endpoint || endpoint.indexOf("YOUR_FORM_ID") !== -1) {
+        showError("表单尚未配置：请前往 formspree.io 免费注册，验证邮箱 X_kenny@yeah.net 后，将生成的表单 ID 填入 src/pages/contact.astro 中 <form> 的 action 属性（替换 YOUR_FORM_ID）。");
         return;
       }
 
@@ -131,7 +131,7 @@
         submitBtn.textContent = "提交中…";
       }
 
-      fetch(FORMSPREE_ENDPOINT, {
+      fetch(endpoint, {
         method: "POST",
         body: new FormData(form),
         headers: { Accept: "application/json" },
