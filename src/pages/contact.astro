@@ -2,117 +2,140 @@
 import Layout from '../layouts/Layout.astro';
 
 const team = [
-  { name: 'Kenny', role: '总经理' },
-  { name: 'Andy', role: '销售经理' },
-  { name: 'Lucas', role: '销售经理' },
-  { name: 'Hana', role: '单证主管' },
-  { name: 'Cathy', role: '操作主管' },
-  { name: 'Sally', role: '销售' },
-  { name: 'Caitlyn', role: '单证' },
-  { name: 'Juno', role: '操作' },
-  { name: 'Michelle', role: '客服' },
-  { name: 'Sugar', role: '客服' },
+  { name: 'Kenny',   role: '总经理',  img: 'kenny',                 delay: 0,   faceTop: false },
+  { name: 'Lucas',   role: '销售经理', img: 'lucas', delay: 60,  faceTop: false },
+  { name: 'Andy',    role: '销售经理', img: 'andy',                 delay: 120, faceTop: true },
+  { name: 'Sally',   role: '销售',    img: 'sally',            delay: 180, faceTop: false },
+  { name: 'Hana',    role: '单证主管', img: 'hana',                delay: 240, faceTop: false },
+  { name: 'Caitlyn', role: '单证',    img: 'caitlyn',          delay: 0,   faceTop: true },
+  { name: 'Cathy',   role: '操作主管', img: 'cathy',                 delay: 60,  faceTop: false },
+  { name: 'Juno',    role: '操作',    img: 'juno',             delay: 120, faceTop: false },
+  { name: 'Michelle',role: '客服',    img: 'michelle',                 delay: 180, faceTop: false },
+  { name: 'Sugar',   role: '客服',    img: 'sugar',            delay: 240, faceTop: false },
 ];
 ---
-<Layout title="联系我们 — 江苏嘉弘国际货运代理有限公司">
-  <section class="hero-inner">
+
+<Layout
+  title="联系我们 - 江苏嘉弘国际货运代理有限公司"
+  description="联系江苏嘉弘国际货运代理有限公司，获取专属物流方案与报价。地址：江苏省张家港市凤凰镇长江路 8 号。"
+>
+  <!-- Page hero -->
+  <section class="page-hero has-img control">
     <div class="container">
-      <p class="eyebrow">联系我们</p>
-      <h1>请随时与我们联系</h1>
-      <p class="lead">如果您有任何问题或顾虑，可以通过以下方式联系我们。</p>
+      <div class="breadcrumb"><a href="/">首页</a> / 联系我们</div>
+      <h1>联系我们</h1>
+      <p>如果您有任何问题或顾虑，可以通过以下方式联系我们。</p>
     </div>
   </section>
 
+  <!-- 联系方式 + 表单 -->
   <section class="section">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="card info">
-          <h2>联系方式</h2>
-          <ul class="info-list">
-            <li>
-              <span class="ico">📍</span>
-              <div><strong>地址</strong><br />江苏省张家港市凤凰镇长江路8号</div>
-            </li>
-            <li>
-              <span class="ico">📞</span>
-              <div><strong>电话</strong><br /><a href="tel:+8618013613114">+86 180 1361 3114</a></div>
-            </li>
-            <li>
-              <span class="ico">✉️</span>
-              <div><strong>电子邮件</strong><br /><a href="mailto:X_kenny@yeah.net">X_kenny@yeah.net</a></div>
-            </li>
-          </ul>
+    <div class="container contact-grid">
+      <div class="contact-info reveal">
+        <h3>请随时与我们联系</h3>
+        <div class="row">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2Z"/></svg></div>
+          <div><div class="t">电话</div><div class="v">+86 18013613114</div></div>
         </div>
-        <div class="card map-placeholder">
-          <h2>公司位置</h2>
-          <div class="map-box">
-            <p>江苏省张家港市凤凰镇长江路8号</p>
-            <p class="hint">部署后可接入高德 / Google Maps 嵌入地图</p>
+        <div class="row">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6l9 6 9-6M3 6v12h18V6H3Z"/></svg></div>
+          <div><div class="t">电子邮件</div><div class="v">X_kenny@yeah.net</div></div>
+        </div>
+        <div class="row">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div><div class="t">地址</div><div class="v">江苏省张家港市凤凰镇长江路 8 号</div></div>
+        </div>
+        <div class="row">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div><div class="t">工作时间</div><div class="v">周一至周五 09:00 - 18:00</div></div>
+        </div>
+        <div class="map-box">
+          <svg class="pin" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11Z" fill="rgba(31,143,214,0.12)"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span class="map-label">江苏省张家港市 · 凤凰镇长江路 8 号</span>
+        </div>
+      </div>
+
+      <div class="form-card reveal" data-delay="100">
+        <h3>在线留言</h3>
+        <p class="sub">填写下方信息，我们的物流顾问将在一个工作日内与您联系。</p>
+        <div class="form-success" id="formSuccess">✓ 提交成功！感谢您的留言，我们会尽快与您联系。</div>
+        <form id="contactForm" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label>姓名 <span class="req">*</span></label>
+              <input type="text" id="name" data-required placeholder="您的称呼" />
+              <div class="err">请填写您的姓名</div>
+            </div>
+            <div class="field">
+              <label>公司名称</label>
+              <input type="text" placeholder="选填" />
+            </div>
           </div>
-        </div>
+          <div class="field-row">
+            <div class="field">
+              <label>联系电话 <span class="req">*</span></label>
+              <input type="tel" id="phone" data-required placeholder="11 位手机号" />
+              <div class="err">请填写正确的手机号</div>
+            </div>
+            <div class="field">
+              <label>邮箱</label>
+              <input type="email" id="email" placeholder="选填" />
+              <div class="err">邮箱格式不正确</div>
+            </div>
+          </div>
+          <div class="field">
+            <label>服务类型</label>
+            <select>
+              <option value="">请选择</option>
+              <option>海运进出口</option>
+              <option>空运进出口</option>
+              <option>国内陆运</option>
+              <option>仓储</option>
+              <option>堆场</option>
+              <option>报关清关</option>
+              <option>其他 / 综合咨询</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>需求描述 <span class="req">*</span></label>
+            <textarea id="message" data-required placeholder="请简要描述货物类型、起运地、目的地及时效要求等"></textarea>
+            <div class="err">请填写您的需求描述</div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">提交留言</button>
+          <p class="form-note">* 本表单为演示用途，提交后不会真实发送，可对接后端接口实现正式收件。</p>
+        </form>
       </div>
     </div>
   </section>
 
+  <!-- 团队 -->
   <section class="section soft">
     <div class="container">
-      <div class="section-title">
-        <p class="eyebrow">我们的团队</p>
+      <div class="section-head reveal">
+        <span class="eyebrow">OUR TEAM</span>
         <h2>认识我们才华横溢的团队</h2>
-        <p class="lead">我们的团队充满激情，兢兢业业，汇集了各种技能和专业知识，为客户提供卓越的服务。</p>
+        <p>我们的团队充满激情、兢兢业业，汇集了各种技能与专业知识，以满足并超越客户的期望。</p>
       </div>
-      <div class="grid grid-3 team">
+      <div class="team-grid">
         {team.map((m) => (
-          <div class="card member">
-            <div class="avatar">{m.name.charAt(0)}</div>
-            <h3>{m.name}</h3>
-            <p>{m.role}</p>
+          <div class="member reveal" data-delay={m.delay}>
+            <div class:list={['avatar', m.faceTop && 'face-top']}>
+              <img src={`/images/team/${m.img}.webp`} alt={m.name} loading="lazy" />
+            </div>
+            <h4>{m.name}</h4>
+            <div class="role">{m.role}</div>
           </div>
         ))}
-        <div class="card member kenny">
-          <div class="avatar">K</div>
-          <h3>Kenny</h3>
-          <p>总经理 · +86 180 1361 3114</p>
-        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-band has-img crane">
+    <div class="container">
+      <h2>需要即时沟通？</h2>
+      <p>拨打我们的电话 +86 18013613114，直接与物流顾问对话。</p>
+      <a href="tel:+8618013613114" class="btn btn-primary">立即致电 →</a>
     </div>
   </section>
 </Layout>
-
-<style>
-  .hero-inner { background: linear-gradient(135deg, var(--brand-dark), var(--brand)); color: #fff; padding: 64px 0 56px; }
-  .hero-inner h1 { color: #fff; }
-  .hero-inner .eyebrow { color: #9ec3e8; }
-  .hero-inner .lead { color: #d7e6f6; }
-
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .info h2, .map-placeholder h2 { margin-bottom: 20px; }
-  .info-list { list-style: none; padding: 0; margin: 0; }
-  .info-list li { display: flex; gap: 16px; margin-bottom: 22px; align-items: flex-start; }
-  .info-list .ico { font-size: 1.4rem; line-height: 1.4; }
-  .info-list strong { color: var(--ink); }
-  .map-box {
-    background: var(--bg-soft);
-    border: 1px dashed var(--line);
-    border-radius: var(--radius);
-    padding: 40px 24px;
-    text-align: center;
-    color: var(--muted);
-  }
-  .map-box .hint { font-size: .85rem; color: var(--muted); margin: 8px 0 0; }
-
-  .team .member { text-align: center; }
-  .team .avatar {
-    width: 56px; height: 56px; border-radius: 50%;
-    background: var(--brand-light); color: var(--brand);
-    display: grid; place-items: center; margin: 0 auto 14px;
-    font-size: 1.4rem; font-weight: 700;
-  }
-  .team .member h3 { margin-bottom: 4px; }
-  .team .member p { color: var(--muted); margin: 0; font-size: .92rem; }
-  .team .kenny { border-color: var(--brand); }
-
-  @media (max-width: 860px) {
-    .contact-grid { grid-template-columns: 1fr; }
-  }
-</style>

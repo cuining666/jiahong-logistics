@@ -47,17 +47,19 @@ npm run preview  # 预览构建产物
 在 Cloudflare 控制台 → Pages → 项目 → **设置 → 重定向** 添加：
 
 ```
-/about/    ->  /about    301
-/offerings/ -> /offerings 301
-/contact/  ->  /contact   301
+/about/              ->  /about      301
+/offerings/          ->  /services   301
+/offerings/contact/  ->  /contact    301
+/contact/            ->  /contact    301
 ```
 
 或在仓库根目录添加 `_redirects` 文件：
 
 ```
-/about/      /about      301
-/offerings/  /offerings  301
-/contact/    /contact    301
+/about/              /about      301
+/offerings/          /services   301
+/offerings/contact/  /contact    301
+/contact/            /contact    301
 ```
 
 ## 内容维护
@@ -68,13 +70,21 @@ npm run preview  # 预览构建产物
 
 ```
 jiahong-logistics/
-├── astro.config.mjs      # 站点配置
+├── astro.config.mjs           # 站点配置（静态输出，无适配器）
 ├── package.json
-├── public/               # 静态资源 (favicon, robots.txt, _redirects)
+├── public/
+│   ├── images/                # 8 张场景图 + team/ 10 张团队照片
+│   ├── js/main.js             # 交互脚本（移动端导航/滚动动画/表单校验）
+│   ├── _redirects             # 301 重定向规则
+│   ├── favicon.svg
+│   └── robots.txt
 ├── src/
-│   ├── layouts/Layout.astro   # 全局布局(头部/底部)
-│   ├── pages/                  # 页面: index / about / offerings / contact
-│   └── styles/global.css       # 全局样式
+│   ├── components/
+│   │   ├── Header.astro       # 头部导航（自动高亮当前页）
+│   │   └── Footer.astro       # 页脚
+│   ├── layouts/Layout.astro   # 全局布局
+│   ├── pages/                 # 页面: index / about / services / contact
+│   └── styles/global.css      # 全局样式
 └── README.md
 ```
 

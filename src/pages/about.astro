@@ -1,88 +1,132 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const principles = [
-  { t: '最快的响应', d: '报价随时都在，以最快的速度回复您，遇到问题及时处理并解决。' },
-  { t: '最好的服务', d: '从货物订舱、报关、进仓到开船到港，全程及时跟踪反馈客户。' },
-  { t: '最优惠的价格', d: '与 12 家船公司签署约价，量达到一定程度可申请市场前列的优惠价格。' },
-  { t: '解决问题的能力', d: '提不到箱、搞定上船均可操作，报关通关率达 96.88%。' },
-];
-
-const values = [
-  { t: '卓越', d: '我们致力于提供卓越的服务，为客户创造有价值的物流解决方案。' },
-  { t: '专业', d: '我们拥有专业团队，为客户提供专业的国内和国际贸易运输服务。' },
-  { t: '信任', d: '我们以诚信和可靠性为基础，赢得客户的信任和满意。' },
-];
 ---
-<Layout title="关于我们 — 江苏嘉弘国际货运代理有限公司">
-  <section class="hero-inner">
+
+<Layout
+  title="关于我们 - 江苏嘉弘国际货运代理有限公司"
+  description="了解江苏嘉弘国际货运代理有限公司的四大服务理念、核心价值观与合作伙伴。国家一级货运代理，12 家船公司签约约价。"
+>
+  <!-- Page hero -->
+  <section class="page-hero has-img warehouse">
     <div class="container">
-      <p class="eyebrow">关于我们</p>
+      <div class="breadcrumb"><a href="/">首页</a> / 关于我们</div>
       <h1>专业货运代理</h1>
-      <p class="lead">公司成立以来，秉持四大服务理念，为客户提供高效、可靠的物流服务。</p>
+      <p>关于我们的故事——以四大服务理念，成为您值得信赖的物流伙伴。</p>
     </div>
   </section>
 
+  <!-- 公司简介 -->
   <section class="section">
-    <div class="container">
-      <div class="section-title">
-        <p class="eyebrow">关于我们的故事</p>
-        <h2>秉持四大服务理念</h2>
+    <div class="container about-grid">
+      <div class="reveal">
+        <span class="eyebrow" style="color:var(--accent);font-weight:700;letter-spacing:2px;">ABOUT US</span>
+        <h2>关于我们的故事</h2>
+        <p>江苏嘉弘国际货运代理有限公司是一家<strong>国家一级货运代理</strong>，秉持四大服务理念，以专业与诚信服务广大外贸与制造企业。</p>
+        <p>公司与 12 家主流船公司签署约价，拥有 20000㎡ 现代化仓库、5 个国际集装箱堆场与 60 辆自有车队，构建覆盖海、陆、空、仓与清关的一条龙服务体系。</p>
+        <ul class="about-list">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>国家一级货运代理资质</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>12 家船公司签约约价</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>报关通关率 96.88%</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>7×24 仓储与堆场运营</li>
+        </ul>
       </div>
-      <div class="grid grid-2">
-        {principles.map((p) => (
-          <div class="card">
-            <h3>{p.t}</h3>
-            <p>{p.d}</p>
-          </div>
-        ))}
-      </div>
+      <img
+        class="about-photo reveal"
+        data-delay="120"
+        src="/images/truck-fleet.webp"
+        alt="嘉弘跨境陆运车队"
+      />
     </div>
   </section>
 
+  <!-- 四大服务理念 -->
   <section class="section soft">
     <div class="container">
-      <div class="section-title">
-        <p class="eyebrow">我们的合作伙伴</p>
-        <h2>与业内领先企业战略合作</h2>
-        <p class="lead">我们自豪地与业内领先的公司建立战略合作关系，共同推动创新和卓越。合作伙伴在各自领域拥有丰富的经验和专业知识，通过紧密协作实现互利共赢。</p>
+      <div class="section-head reveal">
+        <span class="eyebrow">OUR PRINCIPLES</span>
+        <h2>公司成立以来，秉持四大服务理念</h2>
+        <p>一直都在 · 最好的服务 · 最优惠的价格 · 解决问题的能力。</p>
+      </div>
+      <div class="philosophy">
+        <div class="item reveal">
+          <div class="k">理念 01</div>
+          <h4>一直都在</h4>
+          <p>报价随时都在，以最快的速度回复您；遇到问题及时地处理并解决。</p>
+        </div>
+        <div class="item reveal" data-delay="80">
+          <div class="k">理念 02</div>
+          <h4>最好的服务</h4>
+          <p>从货物的订舱、报关、进仓、开船到到港，我们都会及时跟踪并反馈客户。</p>
+        </div>
+        <div class="item reveal" data-delay="160">
+          <div class="k">理念 03</div>
+          <h4>最优惠的价格</h4>
+          <p>我司跟 12 家船公司签署约价，量达到一定程度可申请最优惠价格，市场前列。</p>
+        </div>
+        <div class="item reveal" data-delay="240">
+          <div class="k">理念 04</div>
+          <h4>解决问题的能力</h4>
+          <p>提不到箱、搞定上船均可操作，查验亦可搞定；报关通关率 96.88%。</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- 核心价值观 -->
   <section class="section">
     <div class="container">
-      <div class="section-title">
-        <p class="eyebrow">核心价值观</p>
-        <h2>我们的核心价值体现在承诺与服务中</h2>
+      <div class="section-head reveal">
+        <span class="eyebrow">CORE VALUES</span>
+        <h2>核心价值观</h2>
+        <p>我们的核心价值，体现在对每一位客户的承诺与服务之中。</p>
       </div>
-      <div class="grid grid-3">
-        {values.map((v) => (
-          <div class="card center">
-            <h3>{v.t}</h3>
-            <p>{v.d}</p>
-          </div>
-        ))}
+      <div class="values">
+        <div class="v reveal">
+          <div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 7 7 .5-5.5 4.5 2 7L12 17l-6.5 4 2-7L2 9.5 9 9l3-7Z"/></svg></div>
+          <h4>卓越</h4>
+          <p>我们致力于提供卓越的服务，为客户创造有价值的物流解决方案。</p>
+        </div>
+        <div class="v reveal" data-delay="100">
+          <div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z"/></svg></div>
+          <h4>专业</h4>
+          <p>我们拥有专业团队，为客户提供专业的国内和国际贸易运输服务。</p>
+        </div>
+        <div class="v reveal" data-delay="200">
+          <div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <h4>信任</h4>
+          <p>我们以诚信和可靠性为基础，赢得客户的信任与满意。</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="cta">
+  <!-- 合作伙伴 -->
+  <section class="section soft">
     <div class="container">
-      <h2>立即联系我们</h2>
-      <p>获取专业的货运代理服务支持！</p>
-      <a class="btn" href="/contact">联系我们</a>
+      <div class="section-head reveal">
+        <span class="eyebrow">PARTNERS</span>
+        <h2>我们的合作伙伴</h2>
+        <p>我们自豪地与业内领先的公司建立战略合作关系，共同推动创新与卓越，实现互利共赢。</p>
+      </div>
+      <div class="partners reveal">
+        <div class="p">马士基 MAERSK</div>
+        <div class="p">地中海航运 MSC</div>
+        <div class="p">达飞轮船 CMA</div>
+        <div class="p">中远海运 COSCO</div>
+        <div class="p">长荣 EMCT</div>
+        <div class="p">东方海外 OOCL</div>
+        <div class="p">新海丰 SITC</div>
+        <div class="p">阳明 YML</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-band">
+    <div class="container">
+      <h2>想更深入了解嘉弘？</h2>
+      <p>我们的团队随时为您提供企业介绍与定制化物流咨询。</p>
+      <a href="/contact" class="btn btn-primary">联系我们 →</a>
     </div>
   </section>
 </Layout>
-
-<style>
-  .hero-inner { background: linear-gradient(135deg, var(--brand-dark), var(--brand)); color: #fff; padding: 64px 0 56px; }
-  .hero-inner h1 { color: #fff; }
-  .hero-inner .eyebrow { color: #9ec3e8; }
-  .hero-inner .lead { color: #d7e6f6; }
-  .card.center { text-align: center; }
-  .cta { background: var(--brand-light); padding: 64px 0; text-align: center; }
-  .cta h2 { margin-bottom: 8px; }
-  .cta p { color: var(--muted); margin-bottom: 22px; }
-</style>

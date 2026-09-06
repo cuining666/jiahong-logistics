@@ -1,3 +1,7 @@
-/about/    /about    301
-/offerings/ /offerings 301
-/contact/  /contact  301
+# 旧 WordPress 站（带尾斜杠）→ 新站，保留 SEO 权重
+/about/              /about      301
+/contact/            /contact    301
+/offerings/          /services   301
+/offerings           /services   301
+/offerings/contact/  /contact    301
+/offerings/contact   /contact    301

@@ -1,130 +1,177 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const services = [
-  { n: '01', title: '海运进出口', desc: '东南亚、中东印巴、地中海、欧美、红海、南美等航线优势价格，主要港口均设代理，提供门到门全程服务。' },
-  { n: '02', title: '空运进出口', desc: '以华东、华北、华南三大集运分拨中心为依托，作为多家知名航空公司核心代理，快速送达全球。' },
-  { n: '03', title: '国内陆运', desc: '专业运输车队 60 辆，配备 GPS 全球定位系统，提供集装箱、散货配载及国内运输配送服务。' },
-];
-
-const values = [
-  { title: '快速高效', desc: '以快速高效的服务赢得客户信任，确保货物安全准时到达。' },
-  { title: '全方位服务', desc: '提供海空运输、清关仓储等全方位服务，助力客户畅通国际贸易通路。' },
-];
 ---
-<Layout title="江苏嘉弘国际货运代理有限公司 — 优质国际货运代理服务">
+
+<Layout
+  title="江苏嘉弘国际货运代理有限公司 · 国家一级货运代理"
+  description="江苏嘉弘国际货运代理有限公司，国家一级货运代理。提供海运、空运、国内陆运、仓储、堆场及报关一条龙进出口货运代理服务。"
+>
   <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <p class="eyebrow">国际货运代理 · 一条龙服务</p>
-      <h1>优质国际货运代理服务<br />助您畅通国际贸易通路</h1>
-      <p class="lead">江苏嘉弘国际货运代理有限公司是国家一级货运代理，提供全方位的国内和国际贸易运输服务，全程追踪保障货物安全快捷抵达目的地。</p>
-      <div class="actions">
-        <a class="btn" href="/offerings">查看服务</a>
-        <a class="btn ghost" href="/contact">联系我们</a>
+  <section class="hero has-img">
+    <div class="container hero-inner">
+      <span class="hero-tag">● 国家一级货运代理 · 一条龙进出口服务</span>
+      <h1>专业一条龙货运代理<br /><span class="hl">助您畅通国际贸易通路</span></h1>
+      <p class="lead">海运、空运、陆运、仓储与报关清关，全方位进出口物流服务，全程护航您的货物。</p>
+      <div class="hero-actions">
+        <a href="/services" class="btn btn-primary">查看服务方案 →</a>
+        <a href="/contact" class="btn btn-ghost">联系专属顾问</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">12<span class="u">家</span></div><div class="label">签约船公司</div></div>
+        <div class="stat"><div class="num">20000<span class="u">㎡</span></div><div class="label">现代化仓库</div></div>
+        <div class="stat"><div class="num">60<span class="u">辆</span></div><div class="label">自有运输车队</div></div>
+        <div class="stat"><div class="num">96.88<span class="u">%</span></div><div class="label">报关通关率</div></div>
       </div>
     </div>
   </section>
 
-  <!-- 主要服务项目 -->
+  <!-- 服务领域 -->
   <section class="section">
     <div class="container">
-      <div class="section-title">
-        <p class="eyebrow">主要服务项目</p>
-        <h2>提供一条龙的进出口货运代理服务</h2>
+      <div class="section-head reveal">
+        <span class="eyebrow">SERVICE SCOPE</span>
+        <h2>主要服务项目</h2>
+        <p>提供一条龙的进出口货运代理服务，覆盖海运、空运、陆运、仓储与清关全链路。</p>
       </div>
       <div class="grid grid-3">
-        {services.map((s) => (
-          <div class="card service">
-            <span class="num">{s.n}</span>
-            <h3>{s.title}</h3>
-            <p>{s.desc}</p>
+        <div class="card reveal">
+          <div class="ic">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 16V8a2 2 0 0 1 2-2h9l6 6v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 8v8M15 8v8M3 12h18"/></svg>
           </div>
-        ))}
+          <h3>海运进出口</h3>
+          <p>东南亚、中东印巴、地中海、欧美、红海、南美等航线价格优势，与 12 家船公司签约，门到门服务。</p>
+        </div>
+        <div class="card reveal" data-delay="80">
+          <div class="ic">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12l9-7 9 7M4 12v7h16v-7M9 19v-5h6v5"/></svg>
+          </div>
+          <h3>空运进出口</h3>
+          <p>华东、华北、华南三大集运分拨中心，作为多家知名航空公司核心代理，货物快速送达全球。</p>
+        </div>
+        <div class="card reveal" data-delay="160">
+          <div class="ic">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+          </div>
+          <h3>国内陆运</h3>
+          <p>60 辆自有运输车队配 GPS 定位，提供集装箱、散货配载与全国门到门配送服务。</p>
+        </div>
+        <div class="card reveal">
+          <div class="ic">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V8l8-4 8 4v13M4 21h16M9 21v-6h6v6"/></svg>
+          </div>
+          <h3>仓储</h3>
+          <p>20000㎡ 现代化物流仓库，7×24 小时精细化仓储管理与增值服务，设纺织品专用仓。</p>
+        </div>
+        <div class="card reveal" data-delay="80">
+          <div class="ic">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9h18v10H3zM7 9V6h10v3M9 13h6"/></svg>
+          </div>
+          <h3>堆场</h3>
+          <p>签约 5 个国际集装箱堆场，总面积超 40000㎡，日堆存 5000 TEU，专业修洗箱服务。</p>
+        </div>
+        <div class="card reveal" data-delay="160">
+          <div class="ic">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>报关清关</h3>
+          <p>专业关务团队全程跟踪反馈，报关通关率 96.88%，从订舱到到港一站护航。</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 关于我们的故事 -->
+  <!-- 四大服务理念 -->
   <section class="section soft">
-    <div class="container about">
-      <div>
-        <p class="eyebrow">关于我们的故事</p>
-        <h2>丰富的行业经验，值得信赖的合作伙伴</h2>
-        <p>江苏嘉弘国际货运代理有限公司拥有丰富的行业经验，是一家国家一级货运代理，提供全方位的国内和国际贸易运输服务。</p>
-        <a class="btn ghost" href="/about">了解更多</a>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">OUR PRINCIPLES</span>
+        <h2>公司成立以来，秉持四大服务理念</h2>
+        <p>一直都在 · 最好的服务 · 最优惠的价格 · 解决问题的能力。</p>
       </div>
-      <div class="quote">
-        <blockquote>“江苏嘉弘国际货运代理一直为我们提供高效可靠的物流服务，值得信赖。”</blockquote>
-        <p class="who">— Ali</p>
+      <div class="philosophy">
+        <div class="item reveal">
+          <div class="k">理念 01</div>
+          <h4>一直都在</h4>
+          <p>报价随时都在，以最快的速度回复您；遇到问题及时地处理并解决，做您随叫随到的物流伙伴。</p>
+        </div>
+        <div class="item reveal" data-delay="80">
+          <div class="k">理念 02</div>
+          <h4>最好的服务</h4>
+          <p>从货物的订舱、报关、进仓、开船到到港，我们都会及时跟踪并反馈客户，全程可视、安心托付。</p>
+        </div>
+        <div class="item reveal" data-delay="160">
+          <div class="k">理念 03</div>
+          <h4>最优惠的价格</h4>
+          <p>我司与 12 家船公司签署约价，量达到一定规模可申请最优惠价格，长期处于市场前列。</p>
+        </div>
+        <div class="item reveal" data-delay="240">
+          <div class="k">理念 04</div>
+          <h4>解决问题的能力</h4>
+          <p>提不到箱、搞定上船均可操作，查验问题亦可解决；报关通关率高达 96.88%，难题交给我们。</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 独特价值 -->
+  <!-- 实景带 -->
+  <section class="photo-band" style="background-image:url(/images/warehouse.webp)">
+    <div class="container">
+      <span class="eyebrow">OUR OPERATIONS</span>
+      <h2>20000㎡ 现代化仓库 · 7×24 小时运营</h2>
+      <p>从仓储、装箱、分拣到贴标打托，嘉弘以精细化运营与全程监控，为您的货物提供安全、优质的物流体验。</p>
+    </div>
+  </section>
+
+  <!-- 数据概览 -->
+  <section class="section stats-band">
+    <div class="container">
+      <div class="grid">
+        <div class="reveal"><div class="num">40000<span class="u">㎡</span></div><div class="label">签约堆场总面积</div></div>
+        <div class="reveal" data-delay="80"><div class="num">5000<span class="u">TEU</span></div><div class="label">日堆存能力</div></div>
+        <div class="reveal" data-delay="160"><div class="num">12<span class="u">家</span></div><div class="label">船公司签约约价</div></div>
+        <div class="reveal" data-delay="240"><div class="num">7×24<span class="u">h</span></div><div class="label">仓储运营服务</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 客户评价 -->
   <section class="section">
     <div class="container">
-      <div class="section-title">
-        <p class="eyebrow">独特价值</p>
-        <h2>高效、快捷、全方位的物流服务</h2>
-        <p class="lead">我们为您提供高效、快捷的全方位物流服务，节约成本，成为您值得信赖的合作伙伴。</p>
+      <div class="section-head reveal">
+        <span class="eyebrow">TESTIMONIAL</span>
+        <h2>客户怎么说</h2>
       </div>
-      <div class="grid grid-2">
-        {values.map((v) => (
-          <div class="card">
-            <h3>{v.title}</h3>
-            <p>{v.desc}</p>
-          </div>
-        ))}
+      <div class="testimonial reveal">
+        <blockquote>江苏嘉弘国际货运一直为我们提供高效可靠的物流服务，值得信赖。</blockquote>
+        <div class="who"><b>Ali</b> · <span class="role">合作客户</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 服务流程 -->
+  <section class="section soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">HOW IT WORKS</span>
+        <h2>一条龙服务流程</h2>
+        <p>从需求对接到货物签收，标准可控的进出口物流五步法。</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><div class="badge">1</div><h4>询价报价</h4><p>快速回复，提供签约约价的最优方案。</p></div>
+        <div class="step reveal" data-delay="80"><div class="badge">2</div><h4>订舱进仓</h4><p>订舱、提箱、进仓与单据办理。</p></div>
+        <div class="step reveal" data-delay="160"><div class="badge">3</div><h4>报关装船</h4><p>专业报关，通关率 96.88%。</p></div>
+        <div class="step reveal" data-delay="240"><div class="badge">4</div><h4>在途跟踪</h4><p>开船到到港，全程跟踪反馈。</p></div>
+        <div class="step reveal" data-delay="320"><div class="badge">5</div><h4>到港交付</h4><p>目的港清关配送，完成签收。</p></div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta">
+  <section class="section cta-band">
     <div class="container">
-      <h2>立即联系我们</h2>
-      <p>获取专业的货运代理服务支持，报价随时在线，最快速度回复您。</p>
-      <a class="btn" href="/contact">联系我们</a>
+      <h2>准备好开启您的国际物流方案了吗？</h2>
+      <p>我们的物流顾问将在一个工作日内为您量身定制专属报价与服务方案。</p>
+      <a href="/contact" class="btn btn-primary">立即联系我们 →</a>
     </div>
   </section>
 </Layout>
-
-<style>
-  .hero {
-    background: linear-gradient(135deg, var(--brand-dark), var(--brand));
-    color: #fff;
-    padding: 96px 0 84px;
-  }
-  .hero h1 { color: #fff; font-size: 2.8rem; }
-  .hero .lead { color: #d7e6f6; font-size: 1.15rem; }
-  .hero .eyebrow { color: #9ec3e8; }
-  .actions { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
-  .hero .btn { background: #fff; color: var(--brand-dark); }
-  .hero .btn:hover { background: #eef4fb; }
-  .hero .btn.ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.6); }
-  .hero .btn.ghost:hover { background: rgba(255,255,255,.12); }
-
-  .service .num { color: var(--brand); font-weight: 700; font-size: 1.4rem; }
-
-  .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
-  .quote {
-    background: #fff;
-    border-left: 4px solid var(--brand);
-    padding: 24px 28px;
-    border-radius: 0 var(--radius) var(--radius) 0;
-    box-shadow: var(--shadow);
-  }
-  .quote blockquote { margin: 0; font-size: 1.15rem; font-style: italic; color: var(--ink); }
-  .quote .who { color: var(--muted); margin: 12px 0 0; font-weight: 600; }
-
-  .cta { background: var(--brand-light); padding: 64px 0; text-align: center; }
-  .cta h2 { margin-bottom: 8px; }
-  .cta p { color: var(--muted); margin-bottom: 22px; }
-
-  @media (max-width: 860px) {
-    .hero { padding: 64px 0 56px; }
-    .hero h1 { font-size: 2rem; }
-    .about { grid-template-columns: 1fr; gap: 28px; }
-  }
-</style>
