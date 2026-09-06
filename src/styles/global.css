@@ -151,9 +151,10 @@ ul {
 }
 
 .brand .logo-mark {
-  width: 38px;
   height: 38px;
+  width: auto;
   flex: 0 0 auto;
+  display: block;
 }
 
 .brand-text {
