@@ -5,3 +5,10 @@
 /offerings           /services   301
 /offerings/contact/  /contact    301
 /offerings/contact   /contact    301
+
+# 英文版（带尾斜杠）规范化
+/en/about/          /en/about      301
+/en/contact/        /en/contact    301
+/en/services/       /en/services   301
+/en/                /en            301
+

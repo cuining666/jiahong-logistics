@@ -62,6 +62,26 @@
   // 表单 ID 的唯一来源是 contact.astro 中 <form> 的 action 属性，
   // 注册 formspree.io 并把生成的 ID 填入该 action 即可（无需改本文件）。
 
+  // 中英文提示文案（根据 <html lang> 自动切换）
+  var isEn = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
+  var MSG = isEn
+    ? {
+        configuring:
+          "Form not configured: sign up at formspree.io, verify X_kenny@yeah.net, then paste your form ID into the form's action in contact.astro.",
+        failed: "Submission failed. Please retry later or call +86 18013613114.",
+        network: "Network error — submission failed. Please retry or call +86 18013613114.",
+        submitting: "Submitting…",
+        sep: "; ",
+      }
+    : {
+        configuring:
+          "表单尚未配置：请前往 formspree.io 免费注册，验证邮箱 X_kenny@yeah.net 后，将生成的表单 ID 填入 src/pages/contact.astro 中 <form> 的 action 属性（替换 YOUR_FORM_ID）。",
+        failed: "提交失败，请稍后重试或直接致电 +86 18013613114。",
+        network: "网络异常，提交未成功。请检查网络后重试，或直接致电 +86 18013613114。",
+        submitting: "提交中…",
+        sep: "；",
+      };
+
   var form = document.getElementById("contactForm");
   if (form) {
     var submitBtn = document.getElementById("submitBtn");
@@ -120,7 +140,7 @@
       // 尚未配置 Formspree：提示先注册并填入表单 ID（在 contact.astro 的 action 中）
       var endpoint = form.getAttribute("action") || "";
       if (!endpoint || endpoint.indexOf("YOUR_FORM_ID") !== -1) {
-        showError("表单尚未配置：请前往 formspree.io 免费注册，验证邮箱 X_kenny@yeah.net 后，将生成的表单 ID 填入 src/pages/contact.astro 中 <form> 的 action 属性（替换 YOUR_FORM_ID）。");
+        showError(MSG.configuring);
         return;
       }
 
@@ -128,7 +148,7 @@
       var originalText = submitBtn ? submitBtn.textContent : "";
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = "提交中…";
+        submitBtn.textContent = MSG.submitting;
       }
 
       fetch(endpoint, {
@@ -142,16 +162,16 @@
           } else {
             return res.json().then(function (data) {
               var msg = data && data.errors
-                ? data.errors.map(function (x) { return x.message; }).join("；")
-                : "提交失败，请稍后重试或直接致电 +86 18013613114。";
+                ? data.errors.map(function (x) { return x.message; }).join(MSG.sep)
+                : MSG.failed;
               showError("✗ " + msg);
             }, function () {
-              showError("✗ 提交失败，请稍后重试或直接致电 +86 18013613114。");
+              showError("✗ " + MSG.failed);
             });
           }
         })
         .catch(function () {
-          showError("✗ 网络异常，提交未成功。请检查网络后重试，或直接致电 +86 18013613114。");
+          showError("✗ " + MSG.network);
         })
         .finally(function () {
           if (submitBtn) {

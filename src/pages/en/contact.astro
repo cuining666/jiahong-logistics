@@ -1,0 +1,144 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const team = [
+  { name: 'Kenny',   role: 'General Manager', img: 'kenny',                 delay: 0,   faceTop: false },
+  { name: 'Lucas',   role: 'Sales Manager',   img: 'lucas', delay: 60,  faceTop: false },
+  { name: 'Andy',    role: 'Sales Manager',   img: 'andy',                 delay: 120, faceTop: true },
+  { name: 'Sally',   role: 'Sales',           img: 'sally',            delay: 180, faceTop: false },
+  { name: 'Hana',    role: 'Documentation Lead', img: 'hana',                delay: 240, faceTop: false },
+  { name: 'Caitlyn', role: 'Documentation',   img: 'caitlyn',          delay: 0,   faceTop: true },
+  { name: 'Cathy',   role: 'Operations Lead', img: 'cathy',                 delay: 60,  faceTop: false },
+  { name: 'Juno',    role: 'Operations',       img: 'juno',             delay: 120, faceTop: false },
+  { name: 'Michelle',role: 'Customer Service', img: 'michelle',                 delay: 180, faceTop: false },
+  { name: 'Sugar',   role: 'Customer Service', img: 'sugar',            delay: 240, faceTop: false },
+];
+---
+
+<Layout
+  lang="en"
+  title="Contact Us - Jiangsu Jiahong Int'l Freight Forwarding"
+  description="Contact Jiangsu Jiahong Int'l Freight Forwarding for a tailored logistics plan and quote. Address: No.8 Changjiang Rd, Fenghuang Town, Zhangjiagang, Jiangsu."
+>
+  <!-- Page hero -->
+  <section class="page-hero has-img control">
+    <div class="container">
+      <div class="breadcrumb"><a href="/en">Home</a> / Contact</div>
+      <h1>Contact Us</h1>
+      <p>If you have any questions or concerns, reach us through the following.</p>
+    </div>
+  </section>
+
+  <!-- Contact info + form -->
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="contact-info reveal">
+        <h3>Get in Touch</h3>
+        <div class="row">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2Z"/></svg></div>
+          <div><div class="t">Phone</div><div class="v">+86 18013613114</div></div>
+        </div>
+        <div class="row">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6l9 6 9-6M3 6v12h18V6H3Z"/></svg></div>
+          <div><div class="t">Email</div><div class="v">X_kenny@yeah.net</div></div>
+        </div>
+        <div class="row">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div><div class="t">Address</div><div class="v">No.8 Changjiang Rd, Fenghuang Town, Zhangjiagang, Jiangsu</div></div>
+        </div>
+        <div class="row">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div><div class="t">Hours</div><div class="v">Mon–Fri 09:00 – 18:00</div></div>
+        </div>
+        <div class="map-box">
+          <svg class="pin" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11Z" fill="rgba(31,143,214,0.12)"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span class="map-label">Zhangjiagang, Jiangsu · No.8 Changjiang Rd</span>
+        </div>
+      </div>
+
+      <div class="form-card reveal" data-delay="100">
+        <h3>Send a Message</h3>
+        <p class="sub">Fill in the form and our advisor will contact you within one business day.</p>
+        <div class="form-success" id="formSuccess">✓ Success! Thanks for your message — we'll be in touch soon.</div>
+        <div class="form-error" id="formError"></div>
+        <form id="contactForm" action="https://formspree.io/f/meaqlgvn" method="POST" novalidate>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true" />
+          <div class="field-row">
+            <div class="field">
+              <label>Name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" data-required placeholder="Your name" />
+              <div class="err">Please enter your name</div>
+            </div>
+            <div class="field">
+              <label>Company</label>
+              <input type="text" name="company" placeholder="Optional" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label>Phone <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" data-required placeholder="11-digit mobile" />
+              <div class="err">Please enter a valid phone number</div>
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input type="email" id="email" name="email" placeholder="Optional" />
+              <div class="err">Invalid email format</div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Service</label>
+            <select name="service">
+              <option value="">Please select</option>
+              <option>Ocean Freight</option>
+              <option>Air Freight</option>
+              <option>Domestic Trucking</option>
+              <option>Warehousing</option>
+              <option>Container Yards</option>
+              <option>Customs Clearance</option>
+              <option>Other / General Inquiry</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Message <span class="req">*</span></label>
+            <textarea id="message" name="message" data-required placeholder="Briefly describe cargo type, origin, destination and timing."></textarea>
+            <div class="err">Please enter your message</div>
+          </div>
+          <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
+          <p class="form-note">* Submissions are delivered via Formspree to X_kenny@yeah.net.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">OUR TEAM</span>
+        <h2>Meet Our Talented Team</h2>
+        <p>Our team is passionate and dedicated, bringing together the skills and expertise to meet and exceed client expectations.</p>
+      </div>
+      <div class="team-grid">
+        {team.map((m) => (
+          <div class="member reveal" data-delay={m.delay}>
+            <div class:list={['avatar', m.faceTop && 'face-top']}>
+              <img src={`/images/team/${m.img}.webp`} alt={m.name} loading="lazy" />
+            </div>
+            <h4>{m.name}</h4>
+            <div class="role">{m.role}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-band has-img crane">
+    <div class="container">
+      <h2>Need to Talk Now?</h2>
+      <p>Call +86 18013613114 to speak with an advisor directly.</p>
+      <a href="tel:+8618013613114" class="btn btn-primary">Call Now →</a>
+    </div>
+  </section>
+</Layout>

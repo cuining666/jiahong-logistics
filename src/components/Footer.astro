@@ -1,35 +1,62 @@
 ---
+import { getLocale, useTranslations, localize } from '../i18n/ui';
+
 const year = new Date().getFullYear();
+const locale = getLocale(Astro.url.pathname);
+const t = useTranslations(locale);
+
+const brand = locale === 'zh'
+  ? { cn: '江苏嘉弘国际货运', en: "Jiangsu Jiahong Int'l Freight" }
+  : { cn: 'Jiangsu Jiahong', en: "Int'l Freight Forwarding" };
+
+const quickNav = [
+  { href: localize('/', locale), label: t('nav.home') },
+  { href: localize('/about', locale), label: t('nav.about') },
+  { href: localize('/services', locale), label: t('nav.services') },
+  { href: localize('/contact', locale), label: t('nav.contact') },
+];
+
+const coreServices = locale === 'zh'
+  ? [
+      { href: localize('/services', locale), label: '海运进出口' },
+      { href: localize('/services', locale), label: '空运进出口' },
+      { href: localize('/services', locale), label: '国内陆运' },
+      { href: localize('/services', locale), label: '仓储与堆场' },
+    ]
+  : [
+      { href: localize('/services', locale), label: 'Ocean Freight' },
+      { href: localize('/services', locale), label: 'Air Freight' },
+      { href: localize('/services', locale), label: 'Domestic Trucking' },
+      { href: localize('/services', locale), label: 'Warehousing & Yards' },
+    ];
 ---
 
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <a href="/" class="brand">
+      <a href={localize('/', locale)} class="brand">
         <img src="/images/logo-mark.png" alt="嘉弘物流标志" class="logo-mark" width="188" height="160" loading="lazy" />
         <span class="brand-text">
-          <span class="cn">江苏嘉弘国际货运</span>
-          <span class="en">Jiangsu Jiahong Int'l Freight</span>
+          <span class="cn">{brand.cn}</span>
+          <span class="en">{brand.en}</span>
         </span>
       </a>
-      <p class="desc">国家一级货运代理企业，提供海运、空运、国内陆运、仓储、堆场及报关一条龙进出口货运代理服务。</p>
+      <p class="desc">{t('footer.desc')}</p>
     </div>
     <div class="footer-col">
-      <h4>快速导航</h4>
-      <a href="/">首页</a>
-      <a href="/about">关于我们</a>
-      <a href="/services">产品服务</a>
-      <a href="/contact">联系我们</a>
+      <h4>{t('nav.home') === '首页' ? '快速导航' : 'Quick Links'}</h4>
+      {quickNav.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
     </div>
     <div class="footer-col">
-      <h4>核心服务</h4>
-      <a href="/services">海运进出口</a>
-      <a href="/services">空运进出口</a>
-      <a href="/services">国内陆运</a>
-      <a href="/services">仓储与堆场</a>
+      <h4>{locale === 'zh' ? '核心服务' : 'Core Services'}</h4>
+      {coreServices.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
     </div>
     <div class="footer-col">
-      <h4>联系我们</h4>
+      <h4>{t('nav.contact')}</h4>
       <div class="contact-line">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2Z"/></svg>
         <span>+86 18013613114</span>
@@ -45,7 +72,7 @@ const year = new Date().getFullYear();
     </div>
   </div>
   <div class="container footer-bottom">
-    <span>© <span id="year">{year}</span> 江苏嘉弘国际货运代理有限公司 版权所有</span>
-    <span>国家一级货运代理 · 苏ICP备XXXXXXXX号</span>
+    <span>© <span id="year">{year}</span> {locale === 'zh' ? '江苏嘉弘国际货运代理有限公司 版权所有' : 'Jiangsu Jiahong Int\'l Freight Forwarding Co., Ltd. All Rights Reserved'}</span>
+    <span>{locale === 'zh' ? '国家一级货运代理 · 苏ICP备XXXXXXXX号' : 'Class I Freight Forwarder · 苏ICP备XXXXXXXX号'}</span>
   </div>
 </footer>
