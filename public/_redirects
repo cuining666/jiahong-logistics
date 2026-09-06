@@ -1,14 +1,10 @@
-# 旧 WordPress 站（带尾斜杠）→ 新站，保留 SEO 权重
-/about/              /about      301
-/contact/            /contact    301
-/offerings/          /services   301
-/offerings           /services   301
-/offerings/contact/  /contact    301
-/offerings/contact   /contact    301
+# 旧 WordPress 站点路径 → 新站（保留 SEO 权重，仅跨路径跳转，不会自循环）
+/offerings/          /services    301
+/offerings           /services    301
+/offerings/contact/  /contact     301
+/offerings/contact   /contact     301
 
-# 英文版（带尾斜杠）规范化
-/en/about/          /en/about      301
-/en/contact/        /en/contact    301
-/en/services/       /en/services   301
-/en/                /en            301
-
+# 重要：不要在本文件添加“本站自身尾斜杠互转”规则（如 /about/ -> /about）。
+# 这类规则会与 Cloudflare 对目录资源（about/index.html）的尾斜杠自动处理冲突，
+# 造成 “/about -> /about/ -> /about -> …” 的无限重定向（ERR_TOO_MANY_REDIRECTS）。
+# Astro 已用 trailingSlash: 'never' 生成无斜杠的规范链接，无需在此再处理尾斜杠。
