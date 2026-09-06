@@ -59,33 +59,36 @@ const team = [
         <h3>在线留言</h3>
         <p class="sub">填写下方信息，我们的物流顾问将在一个工作日内与您联系。</p>
         <div class="form-success" id="formSuccess">✓ 提交成功！感谢您的留言，我们会尽快与您联系。</div>
-        <form id="contactForm" novalidate>
+        <div class="form-error" id="formError"></div>
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <!-- 蜜罐字段：用于拦截机器人，真实用户看不到 -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true" />
           <div class="field-row">
             <div class="field">
               <label>姓名 <span class="req">*</span></label>
-              <input type="text" id="name" data-required placeholder="您的称呼" />
+              <input type="text" id="name" name="name" data-required placeholder="您的称呼" />
               <div class="err">请填写您的姓名</div>
             </div>
             <div class="field">
               <label>公司名称</label>
-              <input type="text" placeholder="选填" />
+              <input type="text" name="company" placeholder="选填" />
             </div>
           </div>
           <div class="field-row">
             <div class="field">
               <label>联系电话 <span class="req">*</span></label>
-              <input type="tel" id="phone" data-required placeholder="11 位手机号" />
+              <input type="tel" id="phone" name="phone" data-required placeholder="11 位手机号" />
               <div class="err">请填写正确的手机号</div>
             </div>
             <div class="field">
               <label>邮箱</label>
-              <input type="email" id="email" placeholder="选填" />
+              <input type="email" id="email" name="email" placeholder="选填" />
               <div class="err">邮箱格式不正确</div>
             </div>
           </div>
           <div class="field">
             <label>服务类型</label>
-            <select>
+            <select name="service">
               <option value="">请选择</option>
               <option>海运进出口</option>
               <option>空运进出口</option>
@@ -98,11 +101,11 @@ const team = [
           </div>
           <div class="field">
             <label>需求描述 <span class="req">*</span></label>
-            <textarea id="message" data-required placeholder="请简要描述货物类型、起运地、目的地及时效要求等"></textarea>
+            <textarea id="message" name="message" data-required placeholder="请简要描述货物类型、起运地、目的地及时效要求等"></textarea>
             <div class="err">请填写您的需求描述</div>
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">提交留言</button>
-          <p class="form-note">* 本表单为演示用途，提交后不会真实发送，可对接后端接口实现正式收件。</p>
+          <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%;justify-content:center;">提交留言</button>
+          <p class="form-note">* 提交后将通过 Formspree 发送至 X_kenny@yeah.net。请将 main.js 中的 FORM_ID 替换为你注册的表单 ID。</p>
         </form>
       </div>
     </div>
